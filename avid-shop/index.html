@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<meta name="description" content="فروشگاه آنلاین آوید، محصولات خوراکی با کیفیت">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<title>فروشگاه آوید</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lalezar&family=Vazirmatn:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Icon sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-cart" viewBox="0 0 24 24"><circle cx="9" cy="20" r="1.6"/><circle cx="18" cy="20" r="1.6"/><path d="M2 3h3l2.6 12.4a1 1 0 0 0 1 .8h8.8a1 1 0 0 0 1-.8L20 7H6"/></symbol>
+  <symbol id="i-ig" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".8" fill="currentColor"/></symbol>
+  <symbol id="i-tg" viewBox="0 0 24 24"><path d="M21 4L3 11l6 2.2L11 20l3-4.5 4.5 3.3z"/><path d="M9 13.2L21 4"/></symbol>
+  <symbol id="i-wa" viewBox="0 0 24 24"><path d="M3 21l1.5-4.6A8.5 8.5 0 1 1 8 19.6z"/><path d="M9 9c.5 2.5 2.5 4.5 5 5l1.3-1.3-2-1-.8.8c-.8-.4-1.5-1.1-1.9-1.9l.8-.8-1-2z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l1.5 4-2 1.4a11 11 0 0 0 5.1 5.1L15 12.5l4 1.5v4a2 2 0 0 1-2 2A14 14 0 0 1 3 6a2 2 0 0 1 2-2z"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></symbol>
+  <symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 3c4 4 6 7 6 10.5a6 6 0 0 1-12 0C6 10 8 7 12 3z"/><path d="M9.5 14.5c0 1.5 1 2.5 2.5 2.5"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></symbol>
+  <symbol id="i-truck" viewBox="0 0 24 24"><path d="M2 7h12v9H2zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></symbol>
+</svg>
+
+<div class="topbar">
+  <div class="wrap">
+    <span>طعم خوب، حال خوب</span>
+    <span class="hours">همه روزه ۹ تا ۲۱</span>
+    <span class="social-mini">
+      <a href="#" aria-label="اینستاگرام"><svg class="ico"><use href="#i-ig"/></svg></a>
+      <a href="#" aria-label="تلگرام"><svg class="ico"><use href="#i-tg"/></svg></a>
+    </span>
+  </div>
+</div>
+
+<header id="hd">
+  <div class="wrap">
+    <a class="logo" href="#top"><img src="assets/favicon.svg" alt="" width="34" height="34">آوید</a>
+    <nav id="nav" aria-label="منوی اصلی">
+      <a href="#top">خانه</a>
+      <a href="#shop">محصولات</a>
+      <a href="#about">درباره ما</a>
+      <a href="#contact">تماس</a>
+    </nav>
+    <div class="actions">
+      <button class="cartbtn" id="open" aria-label="سبد خرید">
+        <svg class="ico"><use href="#i-cart"/></svg>
+        <span class="cart-label">سبد خرید</span>
+        <span class="badge-n" id="count">۰</span>
+      </button>
+      <button class="menu" id="menu" aria-label="منو" aria-expanded="false"><i></i><i></i><i></i></button>
+    </div>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <svg class="hero-flame" viewBox="0 0 120 150" aria-hidden="true">
+    <path d="M12 8C48 2 78 30 82 70c3 40-14 62-30 78 8-38 6-72-14-100C32 38 22 22 12 8z"/>
+    <path d="M60 20c30 14 40 52 22 92-6 14-14 24-22 32 10-34 12-76 0-124z"/>
+    <path d="M92 40c14 30 8 66-14 92 6-30 8-60 14-92z"/>
+  </svg>
+  <div class="wrap hero-grid">
+    <div class="hero-text">
+      <p class="welcome">به آوید خوش آمدید</p>
+      <h1>طعم خوب</h1>
+      <i class="gold-rule" aria-hidden="true"></i>
+      <p class="sub">محصولات خوراکی آوید، تازه و با کیفیت .</p>
+      <div class="hero-btns">
+        <a class="btn btn-light" href="#shop">مشاهده محصولات</a>
+        <a class="btn btn-ghost" href="#contact">تماس با ما</a>
+      </div>
+    </div>
+    <div class="hero-photos" aria-hidden="true">
+      <div class="hp hp-a"><img src="assets/images/oat-bar.jpg" alt=""></div>
+      <div class="hp hp-b"><img src="assets/images/chocolate-jar.jpg" alt=""></div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap">
+    <h2 class="sec-title rv">چرا آوید؟</h2>
+    <p class="sec-sub rv">کیفیت، تازگی و اعتماد.</p>
+    <div class="feats">
+      <article class="feat rv">
+        <span class="feat-ico"><svg class="ico"><use href="#i-drop"/></svg></span>
+        <h3>کیفیت بالا</h3>
+        <p>مواد اولیه را با دقت انتخاب می‌کنیم تا هر لقمه همان طعم اصیل را داشته باشد.</p>
+      </article>
+      <article class="feat rv">
+        <span class="feat-ico"><svg class="ico"><use href="#i-shield"/></svg></span>
+        <h3>تازه و بهداشتی</h3>
+        <p>تولید و بسته‌بندی در شرایط کاملاً بهداشتی انجام می‌شود و تازه به دست شما می‌رسد.</p>
+      </article>
+      <article class="feat rv">
+        <span class="feat-ico"><svg class="ico"><use href="#i-truck"/></svg></span>
+        <h3>ارسال سریع</h3>
+        <p>سفارش شما را سریع آماده می‌کنیم و با بسته‌بندی مطمئن برایتان می‌فرستیم.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<main class="shop" id="shop">
+  <div class="wrap">
+    <h2 class="sec-title rv">محصولات آوید</h2>
+    <p class="sec-sub rv">با دقت تهیه شده، برای شما.</p>
+    <div class="grid" id="grid"></div>
+    <p class="policy rv">ارسال به سراسر کشور &nbsp;|&nbsp; امکان پرداخت در محل &nbsp;|&nbsp; ضمانت تازگی محصول</p>
+  </div>
+</main>
+
+<section class="visit">
+  <div class="wrap">
+    <div class="visit-text rv">
+      <h2>به ما سر بزنید</h2>
+      <i class="gold-rule" aria-hidden="true"></i>
+      <p>خوشحال می‌شویم از نزدیک میزبان شما باشیم.</p>
+      <ul class="info-list">
+        <li><svg class="ico"><use href="#i-pin"/></svg>نشانی</li>
+        <li><svg class="ico"><use href="#i-phone"/></svg><a href="tel:+989120000000">۰۹۱۲۰۰۰۰۰۰۰</a></li>
+        <li><svg class="ico"><use href="#i-clock"/></svg>همه روزه ۹ تا ۲۱</li>
+      </ul>
+      <a class="btn btn-red" href="#">مسیریابی روی نقشه</a>
+    </div>
+    <div class="visit-photos">
+      <img class="rv" src="assets/images/office-1.jpg" alt="ساختمان آوید، اتاق جلسه" loading="lazy">
+      <img class="rv" src="assets/images/office-2.jpg" alt="ساختمان آوید، فضای کار" loading="lazy">
+      <img class="rv" src="assets/images/office-3.jpg" alt="ساختمان آوید، سالن" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section class="news">
+  <div class="wrap">
+    <div class="news-text">
+      <h3>عضو سایت شوید</h3>
+      <p>از محصولات جدید و تخفیف‌های ویژه باخبر شوید.</p>
+    </div>
+    <div class="news-form" id="newsForm">
+      <input class="field" id="nl" placeholder="ایمیل یا شماره موبایل" aria-label="ایمیل یا شماره موبایل">
+      <button class="btn btn-red" id="nlgo">عضویت</button>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap foot-grid">
+    <div>
+      <h4>تماس با ما</h4>
+      <p>تلفن: ۰۹۱۲۰۰۰۰۰۰۰<br>نشانی: </p>
+    </div>
+    <div>
+      <h4>ما را دنبال کنید</h4>
+      <p class="social">
+        <a href="#" aria-label="اینستاگرام"><svg class="ico"><use href="#i-ig"/></svg></a>
+        <a href="#" aria-label="تلگرام"><svg class="ico"><use href="#i-tg"/></svg></a>
+        <a href="#" aria-label="واتساپ"><svg class="ico"><use href="#i-wa"/></svg></a>
+      </p>
+    </div>
+  </div>
+  <div class="copy">
+    <div class="wrap">
+      <span>© آوید، تمامی حقوق محفوظ است.</span>
+      <span class="legal"><a href="#">حریم خصوصی</a><a href="#">قوانین و مقررات</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating quick contact -->
+<div class="fab" id="fab">
+  <div class="fab-menu">
+    <a href="#" aria-label="تلگرام"><svg class="ico"><use href="#i-tg"/></svg></a>
+    <a href="#" aria-label="واتساپ"><svg class="ico"><use href="#i-wa"/></svg></a>
+    <a href="tel:+989120000000" aria-label="تماس تلفنی"><svg class="ico"><use href="#i-phone"/></svg></a>
+  </div>
+  <button class="fab-btn" id="fabBtn" aria-label="تماس سریع" aria-expanded="false"><svg class="ico"><use href="#i-chat"/></svg></button>
+</div>
+
+<!-- Mobile cart bar -->
+<button class="cartbar" id="cartbar">
+  <span><svg class="ico"><use href="#i-cart"/></svg> مشاهده سبد خرید (<b id="barCount">۰</b>)</span>
+  <b id="barTotal">۰</b>
+</button>
+
+<div class="toast" id="toast" role="status">
+  <span id="toastMsg"></span>
+  <button id="toastOpen">مشاهده سبد</button>
+</div>
+
+<!-- Product popup -->
+<div class="modal" id="modal" aria-hidden="true">
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+    <button class="x" id="mClose" aria-label="بستن">×</button>
+    <img id="mImg" alt="">
+    <div class="modal-info">
+      <h3 id="mTitle"></h3>
+      <p id="mDesc"></p>
+      <dl id="mDetails"></dl>
+      <div class="price" id="mPrice"></div>
+      <button class="btn btn-red" id="mAdd">افزودن به سبد</button>
+    </div>
+  </div>
+</div>
+
+<div class="shade" id="shade"></div>
+<aside id="drawer" aria-label="سبد خرید" aria-hidden="true">
+  <div class="dh"><h2>سبد خرید</h2><button class="x" id="close" aria-label="بستن">×</button></div>
+  <div class="items" id="items"></div>
+  <div class="foot" id="foot">
+    <div class="tot"><span>جمع کل</span><span id="total">۰</span></div>
+    <div class="fg"><input class="field" id="name" placeholder="نام و نام خانوادگی" autocomplete="name"><small class="err" id="e-name"></small></div>
+    <div class="fg"><input class="field" id="phone" placeholder="شماره موبایل، مثل ۰۹۱۲۰۰۰۰۰۰۰" inputmode="tel" autocomplete="tel"><small class="err" id="e-phone"></small></div>
+    <div class="fg"><input class="field" id="addr" placeholder="آدرس تحویل" autocomplete="street-address"><small class="err" id="e-addr"></small></div>
+    <fieldset class="pay">
+      <label><input type="radio" name="pay" value="cod" checked> پرداخت در محل</label>
+      <label><input type="radio" name="pay" value="online"> پرداخت آنلاین</label>
+    </fieldset>
+    <button class="go" id="go" disabled>ثبت سفارش</button>
+  </div>
+</aside>
+
+<script src="js/products.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
