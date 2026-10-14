@@ -24,7 +24,8 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+html { scroll-behavior: smooth; scroll-padding-top: 76px; -webkit-tap-highlight-color: transparent; }
+button, a { -webkit-tap-highlight-color: transparent; }
 
 body {
   margin: 0;
@@ -71,6 +72,7 @@ a { color: inherit; }
   transition: background .25s, color .25s, border-color .25s, transform .25s;
 }
 .btn:hover { transform: translateY(-2px); }
+.btn:active, .add:active, .go:active, .cartbar:active { transform: scale(.97); }
 .btn-red { background: var(--red); color: #fff; }
 .btn-red:hover { background: var(--deep); }
 .btn-light { background: #fff; color: var(--red); }
@@ -323,7 +325,7 @@ nav a:hover { color: var(--gold); border-color: var(--gold); }
 .news-ok { margin: 0; color: var(--red); font-weight: 700; }
 
 footer { background: var(--ink); color: rgba(255, 255, 255, .78); }
-.foot-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; padding-top: 48px; padding-bottom: 32px; }
+footer .foot-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; padding-top: 56px; padding-bottom: 40px; }
 footer h4 { margin: 0 0 8px; color: var(--gold); font-size: 16px; }
 footer p { margin: 0; font-size: 14px; }
 .social { display: flex; gap: 16px; }
@@ -472,6 +474,11 @@ aside.on { transform: none; visibility: visible; transition: transform .45s var(
 .fab.on .fab-menu { opacity: 1; transform: none; pointer-events: auto; }
 body.has-cart .fab, body.has-cart .toast { bottom: calc(92px + env(safe-area-inset-bottom, 0px)); }
 
+/* ---------- Scroll lock (popup / cart open) ---------- */
+
+body.lock { position: fixed; inset-inline: 0; width: 100%; overflow: hidden; }
+.modal, aside { overscroll-behavior: contain; }
+
 /* ---------- Scroll reveal ---------- */
 
 .rv { opacity: 0; transform: translateY(32px); transition: opacity .8s, transform .8s var(--ease); }
@@ -539,11 +546,24 @@ body.has-cart .fab, body.has-cart .toast { bottom: calc(92px + env(safe-area-ins
   .visit-photos img:first-child { grid-column: span 2; aspect-ratio: 16 / 10; }
   .visit-photos img:nth-child(2) { margin-top: 0; }
   .news-form { max-width: none; width: 100%; }
-  .foot-grid { grid-template-columns: 1fr; }
+  footer .foot-grid { grid-template-columns: 1fr; gap: 36px; padding-top: 48px; }
   .copy .wrap { justify-content: center; text-align: center; }
-  .modal { align-items: end; padding: 0; }
-  .modal-box { grid-template-columns: 1fr; max-height: 90vh; border-radius: 24px 24px 0 0; }
-  .modal-box > img { min-height: 0; aspect-ratio: 4 / 3; }
+  .modal { padding: 0; }
+  .modal-box {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    max-height: none;
+    overflow: hidden;
+    border-radius: 0;
+  }
+  .modal-box > img { flex: none; width: 100%; height: 36vh; height: 36dvh; min-height: 0; }
+  .modal-info { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 20px 20px calc(16px + env(safe-area-inset-bottom, 0px)); }
+  .modal-info dl { display: grid; grid-template-columns: auto 1fr; gap: 4px 14px; margin: 4px 0; }
+  .modal-info dt { margin: 0; }
+  .modal-info .price { margin-top: auto; padding-top: 8px; }
   aside { width: 100%; }
   footer { padding-bottom: 72px; }
 }
@@ -556,6 +576,15 @@ body.has-cart .fab, body.has-cart .toast { bottom: calc(92px + env(safe-area-ins
 @media (hover: none) {
   .card:hover, .feat:hover { transform: none; box-shadow: none; border-color: var(--line); }
   .card:hover .pic img { transform: none; }
+  .btn:hover { transform: none; }
+  .btn-red:hover, .add:hover, .go:hover { background: var(--red); }
+  .go[disabled]:hover { background: #d9c8c2; }
+  .btn-light:hover { background: #fff; color: var(--red); }
+  .btn-ghost:hover { background: transparent; color: #fff; }
+  .cartbtn:hover { background: transparent; color: #fff; }
+  .cartbtn:hover .badge-n { background: var(--gold); color: var(--ink); }
+  nav a:hover { color: #fff; border-color: transparent; }
+  .fab-btn:hover { transform: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
