@@ -114,6 +114,25 @@
     el.classList.add("bump");
   }
 
+  /* ---------- Scroll lock (page stays still behind popup / cart) ---------- */
+
+  let lockedAt = 0;
+
+  function syncScrollLock() {
+    const anyOpen = $("modal").classList.contains("on") || $("drawer").classList.contains("on");
+    const locked = document.body.classList.contains("lock");
+
+    if (anyOpen && !locked) {
+      lockedAt = window.scrollY;
+      document.body.style.top = -lockedAt + "px";
+      document.body.classList.add("lock");
+    } else if (!anyOpen && locked) {
+      document.body.classList.remove("lock");
+      document.body.style.top = "";
+      window.scrollTo({ top: lockedAt, behavior: "instant" });
+    }
+  }
+
   /* ---------- Drawer, modal, toast ---------- */
 
   function setDrawer(open) {
@@ -121,6 +140,7 @@
     $("shade").classList.toggle("on", open);
     $("drawer").setAttribute("aria-hidden", String(!open));
     if (open) $("close").focus();
+    syncScrollLock();
   }
 
   function openModal(id) {
@@ -138,11 +158,13 @@
     $("modal").classList.add("on");
     $("modal").setAttribute("aria-hidden", "false");
     $("mClose").focus();
+    syncScrollLock();
   }
 
   function closeModal() {
     $("modal").classList.remove("on");
     $("modal").setAttribute("aria-hidden", "true");
+    syncScrollLock();
   }
 
   function showToast(message) {
